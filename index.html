@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-    <title>Animated TV Favorites Giphy Grabber</title>
+    <title>Giphy Grabber</title>
 <!-- Google fonts -->
 
 <!-- Bootstrap link -->
@@ -15,20 +15,22 @@
 
 <!-- ****Get the thing working, then deal with adding flair**** -->
 
-<div id=“renderedButtons”>
+<div id="rendered-buttons">
 <!-- Where buttons render -->
 </div>
 
-<form id=“gif-form”>
+<!-- <fieldset> ****Benefit of this over form? -->
+<form id="gif-form">
 	<!-- Input box for adding new button -->
-	<label for=“gif-input”>Add another show!</label>
-	<input type=“text” id=“gif-input”><br>
+	<label for="gif-input">Add another show!</label>
+	<input type="text" id="gif-input"><br>
 
-	<!-- Submit button ***NEEDS SOMETHING -->
-	<input id=“addShow” type=“submit” value=“Submit”>
+	<!-- Submit button ***Add class styling later -->
+	<button type="submit" id="addShow" value="submit">Submit</button>
 </form>
+<!-- </fieldset> -->
 
-<div id=“shows”>
+<div id="shows">
 	<!-- Where the gifs load -->
 </div>
 
