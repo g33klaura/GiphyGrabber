@@ -18,11 +18,13 @@
 // Buttons have same functionality as primary buttons (return clickable gifs using new search term)
 
 
+/* USE SINGLE QUOTES FOR JS & CSS AGAIN */
 
 
 // VARIABLES ====================
 // 
 
+var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the garden wall', 'gravity falls', 'metalocalypse', 'freakazoid', 'earthworm jim', 'aaahh real monsters', 'samurai jack'];
 
 
 
@@ -30,6 +32,33 @@
 // FUNCTIONS ====================
 // 
 
+// Function for creating themed buttons for search
+function renderButtons(argument) {
+	
+	// Empties button div before adding new buttons (so no buttons are repeated)****
+	// $('#rendered-buttons').empty();
+
+	// Looping through array of topics
+	for (var i = 0; i < topics.length; i++) {
+
+		console.log(topics[i]);
+
+		// Dynamically generate buttons for each topic in array
+		var a = $('<button>');
+		// Add a class to each button
+		a.addClass('show');
+		// Add data-attribute with value of the topics at index 'i'
+		a.attr('data-name', topics[i]);
+		// Provide text for button based on string value of topics array at index 'i'
+		a.text(topics[i]);
+		// Render buttons on HTML
+		// $('#rendered-buttons').append(a);
+		$('#rendered-buttons').prepend(a);
+
+		// console.log(a);
+	}
+
+}
 
 
 
