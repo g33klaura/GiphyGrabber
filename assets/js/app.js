@@ -6,8 +6,8 @@
 // [x] Buttons, based off my pre-set array of titles, are created by jQuery
 // [x] When each button is clicked, 
 // [x] an Ajax call to the Giphy API is made using parameters q (query) & limit
-// [] 10 gifs render on the page, below the buttons
-// [] Each gif shows a rating above it
+// [x] 10 gifs render on the page, below the buttons
+// [x] Each gif shows a rating above it
 // [] When gifs load, they're initially in a static state
 // [] Upon click, gifs will change to animated state
 // [] Clicking again returns to static
@@ -33,8 +33,8 @@ var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the g
 // Function for creating themed buttons for search
 function renderButtons() {
 	
-	// Empties button div before adding new buttons (so no buttons are repeated)****
-	// $('#rendered-buttons').empty();
+	// Empties button div before adding new buttons (so no buttons are repeated)
+	$('#rendered-buttons').empty();
 
 	// Looping through array of topics
 	for (var i = 0; i < topics.length; i++) {
@@ -88,7 +88,7 @@ $(document).ready(function() {
 			console.log(this);
 
 		// Variable set to search Giphy API and return 10 results with the title of a show, set to whatever button was pressed
-		var queryURL = 'http://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
+		var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
 
 		// Ajax call
 		$.ajax({
@@ -112,29 +112,38 @@ $(document).ready(function() {
 				// console.log(results[k].rating);
 
 			/* ISN'T SET TO STATIC IMAGE YET!!!
+				- rename from gifImageStatic to just gifImage
 			*/
 			// Create image tag for each gif
-			var gifImageStatic = $('<img>');
+			var gifImage = $('<img>');
 
 				// Renders only the image result with fixed-height
-				gifImageStatic.attr('src', results[k].images.fixed_height.url);
-				
+				// SHOULD THIS BE SET TO STATIC fixed_height_still.url************
+				gifImage.attr('src', results[k].images.fixed_height.url);
+
+				// addClass of gif ~WORKS!!
+				gifImage.addClass('gif');
+				// console.log(this);
+
 				// Renders the rating variable above each image
 				gifDiv.append(p);
 				
 				// Renders each image to the empty div 'gifDiv'
-				gifDiv.append(gifImageStatic);
+				gifDiv.append(gifImage);
 				
 				// Renders each new image & rating to the empty div in the HTML
-				$('#gifs').prepend(gifDiv);
+				// $('#gifs').prepend(gifDiv);
+				$('#gifs').append(gifDiv);
 				
-				// $('#gifs').html(gifDiv);
-				// ^^Do I not want this "prepending" thou.... how can I empty the page of gifs on each button click???****
 		}
+		// ^^Closes for loop for rendering gifs
 
 		});
+		// ^^Closes ajax call
 
 	});
+	// ^^Closes on-click for button function
 
+	// $('.gifs').
 
 });
