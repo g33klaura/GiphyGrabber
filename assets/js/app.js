@@ -66,6 +66,76 @@ function renderButtons() {
 	}	
 };
 
+/*
+function displayGifs() {
+
+	// Place everything from ajax call to get gifs into here
+	// Then call in on-click
+
+	// Variable to hold the value of the button clicked
+	var cartoonTitle = $(this).attr('data-name');
+		console.log(this);
+
+	// Variable set to search Giphy API and return 10 results with the title of a show, set to whatever button was pressed
+	var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
+
+	// Ajax call
+	$.ajax({
+		url: queryURL,
+		method: 'GET'
+	}).done(function(response) {
+
+		console.log(response);
+
+		// Variable equal to the response.data object from ajax call
+		var results = response.data;
+		// results = response.data;
+
+		// Loop to render images on page for length of returned ajax results
+		for (var k = 0; k < results.length; k++) {
+		// for (k = 0; k < results.length; k++) {
+
+
+			// jQuery created div, stored in variable
+			var gifDiv = $('<div>');
+
+			// Pulls rating from each gif result, displays as <p> tag on page
+			var p = $('<p>').text('Rated: ' + results[k].rating);
+				// console.log(results[k].rating);
+
+			// Create image tag for each gif
+			var gifImage = $('<img>');
+
+				// Attempting to set multiple attributes at once........
+				gifImage.attr({
+					'src': results[k].images.fixed_height_still.url,
+					'data-animate': results[k].images.fixed_height.url,
+					'data-still': results[k].images.fixed_height_still.url,
+					'data-state': 'still'
+				});
+
+				// addClass of gif ~WORKS!!
+				gifImage.addClass('gif');
+				// console.log(this);
+
+				// Renders the rating variable above each image
+				gifDiv.append(p);
+				
+				// Renders each image to the empty div 'gifDiv'
+				gifDiv.append(gifImage);
+				
+				// Renders each new image & rating to the empty div in the HTML
+				// $('#gifs').prepend(gifDiv);
+				$('#gifs').append(gifDiv);
+				
+		}
+		// ^^Closes for loop for rendering gifs
+	});
+};
+*/
+
+
+
 
 
 
@@ -92,6 +162,7 @@ $(document).ready(function() {
 		// TEST: Buttons click  ~WORKS
 		console.log('Button was clicked');
 
+		
 		// Variable to hold the value of the button clicked
 		var cartoonTitle = $(this).attr('data-name');
 			console.log(this);
@@ -123,13 +194,13 @@ $(document).ready(function() {
 			var p = $('<p>').text('Rated: ' + results[k].rating);
 				// console.log(results[k].rating);
 
-			/* ISN'T SET TO STATIC IMAGE YET!!!
-				- rename from gifImageStatic to just gifImage
-			*/
+			// ISN'T SET TO STATIC IMAGE YET!!!
+				// - rename from gifImageStatic to just gifImage
+			
 			// Create image tag for each gif
 			var gifImage = $('<img>');
 
-				/*
+				
 				// Renders only the image result with fixed-height
 				gifImage.attr('src', results[k].images.fixed_height_still.url);
 
@@ -140,7 +211,7 @@ $(document).ready(function() {
 
 				// Does this go here or in the image on-click????
 				gifImage.attr('data-state', 'still');
-				*/
+				
 
 				// Attempting to set multiple attributes at once........
 				gifImage.attr({
@@ -171,9 +242,13 @@ $(document).ready(function() {
 
 		});
 		// ^^Closes ajax call
+		
+
+		// displayGifs();
 
 	});
 	// ^^Closes on-click for button function
+
 
 	// Adds click function to each image created
 	$(this).on('click', '.gif', function() {
@@ -181,7 +256,7 @@ $(document).ready(function() {
 		// ~WORKS!!
 		console.log('gif clicked');
 		
-		// *******There's a delay because this var is in this on-click, but if I move it to the other function, it's out of the scope.......
+		// There's a delay because this var is in this on-click, but if I move it to the other function, it's out of the scope....  ~FIXED
 		// SOLUTION: Set the data-state to still in the render images function, so it ~starts~ with the data-state of still :)
 		var state = $(this).attr('data-state');
 
@@ -193,12 +268,26 @@ $(document).ready(function() {
 			$(this).attr('src', $(this).attr('data-animate'));
 			// $(this).attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
 			$(this).attr('data-state', 'animate');
-		}
-		else {
+		} else {
 			$(this).attr('src', $(this).attr('data-still'));
 			// $(this).attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 			$(this).attr('data-state', 'still');
 		}
 	});
+
+
+	// This function handles events where add cartoon button is pressed
+      $("#add-cartoon").on("click", function(event) {
+        
+        event.preventDefault();
+        // This line grabs the input from the textbox
+        var newCartoon = $("#gif-input").val().trim();
+
+        // Adding input from the textbox to our array
+        topics.push(newCartoon);
+
+        // Calling renderButtons which handles the processing of our movie array
+        renderButtons();
+      });
 
 });
