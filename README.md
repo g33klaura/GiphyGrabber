@@ -21,6 +21,6 @@ A fun app for grabbing animated gifs using the Giphy API
 
 
 <!-- Delete these terminal commands for final -->
-git add assets/css/zazz.css
+<!-- git add assets/css/zazz.css
 git add assets/js/scratch.js
-git add assets/js/app.js
+git add assets/js/app.js -->
