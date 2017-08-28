@@ -8,9 +8,9 @@
 // [x] an Ajax call to the Giphy API is made using parameters q (query) & limit
 // [x] 10 gifs render on the page, below the buttons
 // [x] Each gif shows a rating above it
-// [] When gifs load, they're initially in a static state
-// [] Upon click, gifs will change to animated state
-// [] Clicking again returns to static
+// [x] When gifs load, they're initially in a static state
+// [x] Upon click, gifs will change to animated state
+// [x] Clicking again returns to static
 // Secondary:
 // [] Input element with submit button allows user to add new buttons
 // [] Each new button is dynamically rendered with jQuery
@@ -129,8 +129,8 @@ $(document).ready(function() {
 			// Create image tag for each gif
 			var gifImage = $('<img>');
 
+				/*
 				// Renders only the image result with fixed-height
-				// SHOULD THIS BE SET TO STATIC fixed_height_still.url************
 				gifImage.attr('src', results[k].images.fixed_height_still.url);
 
 				// HOW TO GET BOTH SOURCES FOR IMAGES????????????????
@@ -140,6 +140,15 @@ $(document).ready(function() {
 
 				// Does this go here or in the image on-click????
 				gifImage.attr('data-state', 'still');
+				*/
+
+				// Attempting to set multiple attributes at once........
+				gifImage.attr({
+					'src': results[k].images.fixed_height_still.url,
+					'data-animate': results[k].images.fixed_height.url,
+					'data-still': results[k].images.fixed_height_still.url,
+					'data-state': 'still'
+				});
 
 				// gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 
@@ -173,12 +182,13 @@ $(document).ready(function() {
 		console.log('gif clicked');
 		
 		// *******There's a delay because this var is in this on-click, but if I move it to the other function, it's out of the scope.......
+		// SOLUTION: Set the data-state to still in the render images function, so it ~starts~ with the data-state of still :)
 		var state = $(this).attr('data-state');
-		// state = $(this).attr('data-state');
+
 		// 	console.log(this);
 
 		// Switch between still & animate on click
-		// switches data-states, but doesn't change images..........
+		// switches data-states, but doesn't change images.... ~FIXED!!
 		if (state === 'still') {
 			$(this).attr('src', $(this).attr('data-animate'));
 			// $(this).attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
