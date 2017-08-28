@@ -133,9 +133,11 @@ $(document).ready(function() {
 				gifImage.attr('src', results[k].images.fixed_height_still.url);
 
 				// HOW TO GET BOTH SOURCES FOR IMAGES????????????????
-				gifImage.attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
+				gifImage.attr('data-animate', results[k].images.fixed_height.url);
 
-				gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
+				gifImage.attr('data-still', results[k].images.fixed_height_still.url);
+
+				// gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 
 				// addClass of gif ~WORKS!!
 				gifImage.addClass('gif');
@@ -172,12 +174,12 @@ $(document).ready(function() {
 		// Switch between still & animate on click
 		// switches data-states, but doesn't change images..........
 		if (state === 'still') {
-			// $(this).attr('src', $(this).attr('data-animate'));
+			$(this).attr('src', $(this).attr('data-animate'));
 			// $(this).attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
 			$(this).attr('data-state', 'animate');
 		}
 		else {
-			// $(this).attr('src', $(this).attr('data-still'));
+			$(this).attr('src', $(this).attr('data-still'));
 			// $(this).attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 			$(this).attr('data-state', 'still');
 		}
