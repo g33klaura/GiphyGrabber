@@ -66,8 +66,6 @@ function renderButtons() {
 		// Render buttons on HTML
 		$('#rendered-buttons').append(a);
 		// $('#rendered-buttons').prepend(a);
-
-		// console.log(a);
 	}	
 };
 
@@ -301,6 +299,10 @@ $(document).ready(function() {
 
         	// Calling renderButtons which handles the processing of our movie array
         	renderButtons();
+
+        	// Empty add button input
+			// $('#gif-input').val().empty();
+			$('#gif-input').val('');
         };
 
       });
