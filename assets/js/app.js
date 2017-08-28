@@ -283,17 +283,26 @@ $(document).ready(function() {
 
 
 	// This function handles events where add cartoon button is pressed
-      $("#add-cartoon").on("click", function(event) {
+      $('#add-cartoon').on('click', function(event) {
         
         event.preventDefault();
+
+        // Statement checks if a value was entered into input box
+        // Prevents blank buttons from being created
+        if ( $('#gif-input').val().length === 0 ) {
+        		alert('Nothing entered');
+        	} else {
+
         // This line grabs the input from the textbox
-        var newCartoon = $("#gif-input").val().trim();
+        var newCartoon = $('#gif-input').val().trim();
 
-        // Adding input from the textbox to our array
-        topics.push(newCartoon);
+        	// Adding input from the textbox to our array
+        	topics.push(newCartoon);
 
-        // Calling renderButtons which handles the processing of our movie array
-        renderButtons();
+        	// Calling renderButtons which handles the processing of our movie array
+        	renderButtons();
+        };
+
       });
 
 });
