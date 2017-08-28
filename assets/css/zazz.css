@@ -1,3 +1,7 @@
+body {
+	background-image: url(../images/bkgd_wormz_copy.png);
+}
+
 #gifs {
 	display: inline-flex;
 	flex-wrap: wrap;
