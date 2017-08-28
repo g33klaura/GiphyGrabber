@@ -25,6 +25,8 @@
 
 var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the garden wall', 'gravity falls', 'metalocalypse', 'freakazoid', 'earthworm jim', 'aaahh real monsters', 'samurai jack'];
 
+// var results = null;
+// var k = 0;
 
 
 // FUNCTIONS ====================
@@ -77,6 +79,9 @@ $(document).ready(function() {
 	// Readies each button for on-click to get gifs from Giphy
 	$(this).on('click', '.cartoon', function() {
 		
+		// ****See working-movie-app for turning the block below into a function, then calling it in the on-click
+		// **********************************
+
 		// Hoping this will empty the gifs div on each click
 		$('#gifs').empty();
 
@@ -100,9 +105,12 @@ $(document).ready(function() {
 
 		// Variable equal to the response.data object from ajax call
 		var results = response.data;
+		// results = response.data;
 
 		// Loop to render images on page for length of returned ajax results
 		for (var k = 0; k < results.length; k++) {
+		// for (k = 0; k < results.length; k++) {
+
 
 			// jQuery created div, stored in variable
 			var gifDiv = $('<div>');
@@ -117,9 +125,17 @@ $(document).ready(function() {
 			// Create image tag for each gif
 			var gifImage = $('<img>');
 
+				// Does this go here or in the image on-click????
+				// var state = $(this).attr('data-state');
+
 				// Renders only the image result with fixed-height
 				// SHOULD THIS BE SET TO STATIC fixed_height_still.url************
-				gifImage.attr('src', results[k].images.fixed_height.url);
+				gifImage.attr('src', results[k].images.fixed_height_still.url);
+
+				// HOW TO GET BOTH SOURCES FOR IMAGES????????????????
+				gifImage.attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
+
+				gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 
 				// addClass of gif ~WORKS!!
 				gifImage.addClass('gif');
@@ -147,10 +163,24 @@ $(document).ready(function() {
 	// Adds click function to each image created
 	$(this).on('click', '.gif', function() {
 
+		// ~WORKS!!
 		console.log('gif clicked');
 		
-		// var state = $(this).attr('data-state');
+		var state = $(this).attr('data-state');
 		// 	console.log(this);
+
+		// Switch between still & animate on click
+		// switches data-states, but doesn't change images..........
+		if (state === 'still') {
+			// $(this).attr('src', $(this).attr('data-animate'));
+			// $(this).attr('src', $(this).attr('data-animate' + results[k].images.fixed_height.url));
+			$(this).attr('data-state', 'animate');
+		}
+		else {
+			// $(this).attr('src', $(this).attr('data-still'));
+			// $(this).attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
+			$(this).attr('data-state', 'still');
+		}
 	});
 
 });
