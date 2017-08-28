@@ -4,9 +4,8 @@
 // Primary:
 // [x] Page has array of buttons showing
 // [x] Buttons, based off my pre-set array of titles, are created by jQuery
-// [] When each button is clicked, 
-// [] an Ajax call to the Giphy API is made for the following parameters: 
-	// 'q', 'rating', 'limit'****
+// [x] When each button is clicked, 
+// [x] an Ajax call to the Giphy API is made using parameters q (query) & limit
 // [] 10 gifs render on the page, below the buttons
 // [] Each gif shows a rating above it
 // [] When gifs load, they're initially in a static state
@@ -85,15 +84,44 @@ $(document).ready(function() {
 		var cartoonTitle = $(this).attr('data-name');
 			console.log(this);
 
-		var queryURL = "http://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=" + cartoonTitle + "&limit=10";
+		// Variable set to search Giphy API and return 10 results with the title of a show, set to whatever button was pressed
+		var queryURL = 'http://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
 
 		// Ajax call
 		$.ajax({
 			url: queryURL,
-			method: "GET"
+			method: 'GET'
 		}).done(function(response) {
 
 		console.log(response);
+
+		// Variable equal to the response.data object from ajax call
+		var results = response.data;
+
+		// Loop to render images on page for length of returned ajax results
+		for (var k = 0; k < results.length; k++) {
+
+			// jQuery created div, stored in variable
+			var gifDiv = $('<div>');
+
+			// Pulls rating from each gif result, displays as <p> tag on page
+			var p = $('<p>').text('Rated: ' + results[k].rating);
+				// console.log(results[k].rating);
+
+			/* ISN'T SET TO STATIC IMAGE YET!!!
+			*/
+			// Create image tag for each gif
+			var gifImageStatic = $('<img>');
+
+				// Renders only the image result with fixed-height
+				gifImageStatic.attr('src', results[k].images.fixed_height.url);
+				// Renders the rating variable above each image
+				gifDiv.append(p);
+				// Renders each image to the empty div 'gifDiv'
+				gifDiv.append(gifImageStatic);
+				// Renders each new image & rating to the empty div in the HTML
+				$('#gifs').prepend(gifDiv);
+		}
 
 	});
 
