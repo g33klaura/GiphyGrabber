@@ -74,9 +74,12 @@ $(document).ready(function() {
 	// Add css to display buttons in row? ~NOT NEEDED, inline is default when Bootstrap isn't being used (OTHERWISE BOOTSTRAP OVERRIDES TO DISPLAY: BLOCK)
 	// $('#rendered-buttons').css('display: inline-block');
 
-	// ****Need to replace 'function' with function to use Ajax call and grab gifs
+	// Readies each button for on-click to get gifs from Giphy
 	$(this).on('click', '.cartoon', function() {
 		
+		// Hoping this will empty the gifs div on each click
+		$('#gifs').empty();
+
 		// TEST: Buttons click  ~WORKS
 		console.log('Button was clicked');
 
@@ -115,15 +118,21 @@ $(document).ready(function() {
 
 				// Renders only the image result with fixed-height
 				gifImageStatic.attr('src', results[k].images.fixed_height.url);
+				
 				// Renders the rating variable above each image
 				gifDiv.append(p);
+				
 				// Renders each image to the empty div 'gifDiv'
 				gifDiv.append(gifImageStatic);
+				
 				// Renders each new image & rating to the empty div in the HTML
 				$('#gifs').prepend(gifDiv);
+				
+				// $('#gifs').html(gifDiv);
+				// ^^Do I not want this "prepending" thou.... how can I empty the page of gifs on each button click???****
 		}
 
-	});
+		});
 
 	});
 
