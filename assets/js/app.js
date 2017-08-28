@@ -23,7 +23,7 @@
 // VARIABLES ====================
 // 
 
-var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the garden wall', 'gravity falls', 'metalocalypse', 'freakazoid', 'earthworm jim', 'aaahh real monsters', 'samurai jack'];
+var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the garden wall', 'gravity falls', 'metalocalypse', 'freakazoid', 'earthworm jim', 'aaahh real monsters', 'samurai jack', 'archer'];
 
 // var results = null;
 // var k = 0;
@@ -290,7 +290,7 @@ $(document).ready(function() {
         // Statement checks if a value was entered into input box
         // Prevents blank buttons from being created
         if ( $('#gif-input').val().length === 0 ) {
-        		alert('Nothing entered');
+        		alert('Whoops! Please enter a title.');
         	} else {
 
         // This line grabs the input from the textbox
