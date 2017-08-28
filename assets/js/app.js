@@ -28,6 +28,10 @@ var topics = ['adventure time', 'steven universe', 'rick and morty', 'over the g
 // var results = null;
 // var k = 0;
 
+// var state = '';
+
+
+
 
 // FUNCTIONS ====================
 // 
@@ -125,9 +129,6 @@ $(document).ready(function() {
 			// Create image tag for each gif
 			var gifImage = $('<img>');
 
-				// Does this go here or in the image on-click????
-				// var state = $(this).attr('data-state');
-
 				// Renders only the image result with fixed-height
 				// SHOULD THIS BE SET TO STATIC fixed_height_still.url************
 				gifImage.attr('src', results[k].images.fixed_height_still.url);
@@ -136,6 +137,9 @@ $(document).ready(function() {
 				gifImage.attr('data-animate', results[k].images.fixed_height.url);
 
 				gifImage.attr('data-still', results[k].images.fixed_height_still.url);
+
+				// Does this go here or in the image on-click????
+				gifImage.attr('data-state', 'still');
 
 				// gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
 
@@ -168,7 +172,9 @@ $(document).ready(function() {
 		// ~WORKS!!
 		console.log('gif clicked');
 		
+		// *******There's a delay because this var is in this on-click, but if I move it to the other function, it's out of the scope.......
 		var state = $(this).attr('data-state');
+		// state = $(this).attr('data-state');
 		// 	console.log(this);
 
 		// Switch between still & animate on click
