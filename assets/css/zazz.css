@@ -1,0 +1,13 @@
+#gifs {
+	display: inline-flex;
+	flex-wrap: wrap;
+}
+
+img.gif {
+	margin-right: 5px;
+}
+
+.cartoon {
+	/*margin-right: 5px;*/
+	margin: 5px;
+}
