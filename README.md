@@ -2,7 +2,7 @@
 A fun app for grabbing animated gifs using the Giphy API
 
 # Technologies used
-* JavaScript, jQuery, Ajax, Giphy API, Bootstrap (or Materialize - TBD)
+* JavaScript, jQuery, Ajax, Giphy API, and Materialize.css
 
 # Description
 * As a die-hard fan of animation, I've selected some of my favorite shows as buttons to display a selection of gifs, using the Giphy API
