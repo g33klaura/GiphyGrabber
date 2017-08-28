@@ -12,9 +12,9 @@
 // [x] Upon click, gifs will change to animated state
 // [x] Clicking again returns to static
 // Secondary:
-// [] Input element with submit button allows user to add new buttons
-// [] Each new button is dynamically rendered with jQuery
-// [] Buttons have same functionality as primary buttons (return clickable gifs using new search term)
+// [x] Input element with submit button allows user to add new buttons
+// [x] Each new button is dynamically rendered with jQuery
+// [x] Buttons have same functionality as primary buttons (return clickable gifs using new search term)
 
 
 /* USE SINGLE QUOTES FOR JS & CSS AGAIN */
@@ -50,8 +50,13 @@ function renderButtons() {
 
 		// Dynamically generate buttons for each topic in array
 		var a = $('<button>');
+
+		// Add Materialize button class
+		a.addClass('waves-effect waves-light btn');
+
 		// Add a class to each button
 		a.addClass('cartoon');
+
 		// Add data-attribute with value of the topics at index 'i'
 		a.attr('data-name', topics[i]);
 		// Provide text for button based on string value of topics array at index 'i'
