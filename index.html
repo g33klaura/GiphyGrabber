@@ -7,6 +7,9 @@
 <!-- Bootstrap link -->
 <!-- <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous"> -->
 
+<!--Import materialize.css-->
+<link type="text/css" rel="stylesheet" href="css/materialize.min.css"  media="screen,projection"/>
+
 <!-- Link to my css -->
 <link rel="stylesheet" type="text/css" href="assets/css/zazz.css">
 
@@ -14,27 +17,34 @@
 <body>
 
 <!-- ****Get the thing working, then deal with adding flair**** -->
+<div class="container">
 
-<div id="rendered-buttons">
-<!-- Where buttons render -->
+	<div class="row">
+		<div class="col s12">
+
+		<div id="rendered-buttons">
+		<!-- Where buttons render -->
+		</div>
+
+		<!-- <fieldset> ****Benefit of this over form? -->
+		<form id="gif-form">
+			<!-- Input box for adding new button -->
+			<label for="gif-input">Add another show!</label>
+			<input type="text" id="gif-input"><br>
+
+			<!-- Submit button ***Add class styling later -->
+			<button type="submit" id="add-cartoon" value="submit">Submit</button>
+		</form>
+		<!-- </fieldset> -->
+
+		<div id="gifs">
+		<!-- Where the gifs load -->
+		</div>
+
+		</div>
+	</div>
+
 </div>
-
-<!-- <fieldset> ****Benefit of this over form? -->
-<form id="gif-form">
-	<!-- Input box for adding new button -->
-	<label for="gif-input">Add another show!</label>
-	<input type="text" id="gif-input"><br>
-
-	<!-- Submit button ***Add class styling later -->
-	<button type="submit" id="add-cartoon" value="submit">Submit</button>
-</form>
-<!-- </fieldset> -->
-
-<div id="gifs">
-	<!-- Where the gifs load -->
-</div>
-
-
 
 <!-- SCRIPT LINKS BELOW ////////// -->
 <!-- Link to jquery -->
@@ -43,8 +53,9 @@
 <!-- Bootstrap js -->
 <!-- <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
 
-<!-- Regular js -->
-<!-- <script src=""></script> -->
+<!--Import jQuery before materialize.js-->
+<!-- <script type="text/javascript" src="https://code.jquery.com/jquery-3.2.1.min.js"></script> -->
+<script type="text/javascript" src="js/materialize.min.js"></script>
 
 <!-- Link to my js -->
 <script type="text/javascript" src="assets/js/app.js"></script>
