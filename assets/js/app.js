@@ -72,6 +72,7 @@ function renderButtons() {
 };
 
 /*
+// Ask for help with getting this to work as a function to call later in my on-click (cuz right now, it's broke)
 function displayGifs() {
 
 	// Place everything from ajax call to get gifs into here
@@ -173,7 +174,7 @@ $(document).ready(function() {
 			console.log(this);
 
 		// Variable set to search Giphy API and return 10 results with the title of a show, set to whatever button was pressed
-		var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
+		var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10&rating=PG-13&lang=en';
 
 		// Ajax call
 		$.ajax({
