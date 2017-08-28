@@ -144,6 +144,13 @@ $(document).ready(function() {
 	});
 	// ^^Closes on-click for button function
 
-	// $('.gifs').
+	// Adds click function to each image created
+	$(this).on('click', '.gif', function() {
+
+		console.log('gif clicked');
+		
+		// var state = $(this).attr('data-state');
+		// 	console.log(this);
+	});
 
 });
