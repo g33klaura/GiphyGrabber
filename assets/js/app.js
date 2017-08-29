@@ -17,8 +17,6 @@
 // [x] Buttons have same functionality as primary buttons (return clickable gifs using new search term)
 
 
-/* USE SINGLE QUOTES FOR JS & CSS AGAIN */
-
 
 // VARIABLES ====================
 // 
@@ -141,8 +139,6 @@ function displayGifs() {
 
 
 
-
-
 // MAIN PROCESS ====================
 // 
 
@@ -206,15 +202,15 @@ $(document).ready(function() {
 
 				
 				// Renders only the image result with fixed-height
-				gifImage.attr('src', results[k].images.fixed_height_still.url);
+				// gifImage.attr('src', results[k].images.fixed_height_still.url);
 
-				// HOW TO GET BOTH SOURCES FOR IMAGES????????????????
-				gifImage.attr('data-animate', results[k].images.fixed_height.url);
+				// HOW TO GET BOTH SOURCES FOR IMAGES?????????  ~FIXED!! YAAAY!
+				// gifImage.attr('data-animate', results[k].images.fixed_height.url);
 
-				gifImage.attr('data-still', results[k].images.fixed_height_still.url);
+				// gifImage.attr('data-still', results[k].images.fixed_height_still.url);
 
 				// Does this go here or in the image on-click????
-				gifImage.attr('data-state', 'still');
+				// gifImage.attr('data-state', 'still');
 				
 
 				// Attempting to set multiple attributes at once........
