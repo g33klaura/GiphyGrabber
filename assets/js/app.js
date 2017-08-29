@@ -50,7 +50,7 @@ function renderButtons() {
 		var a = $('<button>');
 
 		// Add Materialize button class
-		a.addClass('waves-effect waves-light btn');
+		a.addClass('waves-effect waves-light btn #8c9eff indigo accent-1');
 
 		// Add a class to each button
 		a.addClass('cartoon');
