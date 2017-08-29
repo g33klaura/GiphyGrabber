@@ -147,14 +147,8 @@ $(document).ready(function() {
 
 	renderButtons();
 
-	// Add css to display buttons in row? ~NOT NEEDED, inline is default when Bootstrap isn't being used (OTHERWISE BOOTSTRAP OVERRIDES TO DISPLAY: BLOCK)
-	// $('#rendered-buttons').css('display: inline-block');
-
 	// Readies each button for on-click to get gifs from Giphy
 	$(this).on('click', '.cartoon', function() {
-		
-		// ****See working-movie-app for turning the block below into a function, then calling it in the on-click
-		// **********************************
 
 		// Hoping this will empty the gifs div on each click
 		$('#gifs').empty();
