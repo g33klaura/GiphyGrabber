@@ -67,75 +67,6 @@ function renderButtons() {
 	}	
 };
 
-/*
-// Ask for help with getting this to work as a function to call later in my on-click (cuz right now, it's broke)
-function displayGifs() {
-
-	// Place everything from ajax call to get gifs into here
-	// Then call in on-click
-
-	// Variable to hold the value of the button clicked
-	var cartoonTitle = $(this).attr('data-name');
-		console.log(this);
-
-	// Variable set to search Giphy API and return 10 results with the title of a show, set to whatever button was pressed
-	var queryURL = 'https://api.giphy.com/v1/gifs/search?api_key=e6e389c7f6fc432dba0ce6999e6c8123&q=' + cartoonTitle + '&limit=10';
-
-	// Ajax call
-	$.ajax({
-		url: queryURL,
-		method: 'GET'
-	}).done(function(response) {
-
-		console.log(response);
-
-		// Variable equal to the response.data object from ajax call
-		var results = response.data;
-		// results = response.data;
-
-		// Loop to render images on page for length of returned ajax results
-		for (var k = 0; k < results.length; k++) {
-		// for (k = 0; k < results.length; k++) {
-
-
-			// jQuery created div, stored in variable
-			var gifDiv = $('<div>');
-
-			// Pulls rating from each gif result, displays as <p> tag on page
-			var p = $('<p>').text('Rated: ' + results[k].rating);
-				// console.log(results[k].rating);
-
-			// Create image tag for each gif
-			var gifImage = $('<img>');
-
-				// Attempting to set multiple attributes at once........
-				gifImage.attr({
-					'src': results[k].images.fixed_height_still.url,
-					'data-animate': results[k].images.fixed_height.url,
-					'data-still': results[k].images.fixed_height_still.url,
-					'data-state': 'still'
-				});
-
-				// addClass of gif ~WORKS!!
-				gifImage.addClass('gif');
-				// console.log(this);
-
-				// Renders the rating variable above each image
-				gifDiv.append(p);
-				
-				// Renders each image to the empty div 'gifDiv'
-				gifDiv.append(gifImage);
-				
-				// Renders each new image & rating to the empty div in the HTML
-				// $('#gifs').prepend(gifDiv);
-				$('#gifs').append(gifDiv);
-				
-		}
-		// ^^Closes for loop for rendering gifs
-	});
-};
-*/
-
 
 
 
@@ -215,8 +146,6 @@ $(document).ready(function() {
 					'data-state': 'still'
 				});
 
-				// gifImage.attr('src', $(this).attr('data-still' + results[k].images.fixed_height_still.url));
-
 				// addClass of gif ~WORKS!!
 				gifImage.addClass('gif');
 				// console.log(this);
@@ -236,9 +165,6 @@ $(document).ready(function() {
 
 		});
 		// ^^Closes ajax call
-		
-
-		// displayGifs();
 
 	});
 	// ^^Closes on-click for button function
