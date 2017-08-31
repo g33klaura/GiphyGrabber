@@ -87,7 +87,6 @@ $(document).ready(function() {
 		// TEST: Buttons click  ~WORKS
 		console.log('Button was clicked');
 
-		
 		// Variable to hold the value of the button clicked
 		var cartoonTitle = $(this).attr('data-name');
 			console.log(this);
@@ -101,44 +100,36 @@ $(document).ready(function() {
 			method: 'GET'
 		}).done(function(response) {
 
-		console.log(response);
+			console.log(response);
 
-		// Variable equal to the response.data object from ajax call
-		var results = response.data;
-		// results = response.data;
+			// Variable equal to the response.data object from ajax call
+			var results = response.data;
+			// results = response.data;
 
-		// Loop to render images on page for length of returned ajax results
-		for (var k = 0; k < results.length; k++) {
-		// for (k = 0; k < results.length; k++) {
+			// Loop to render images on page for length of returned ajax results
+			for (var k = 0; k < results.length; k++) {
+			// for (k = 0; k < results.length; k++) {
 
+				// jQuery created div, stored in variable
+				var gifDiv = $('<div>');
 
-			// jQuery created div, stored in variable
-			var gifDiv = $('<div>');
-
-			// Pulls rating from each gif result, displays as <p> tag on page
-			var p = $('<p>').text('Rated: ' + results[k].rating);
+				// Pulls rating from each gif result, displays as <p> tag on page
+				var p = $('<p>').text('Rated: ' + results[k].rating);
 				// console.log(results[k].rating);
-
-			// ISN'T SET TO STATIC IMAGE YET!!!
-				// - rename from gifImageStatic to just gifImage
 			
-			// Create image tag for each gif
-			var gifImage = $('<img>');
+				// Create image tag for each gif
+				var gifImage = $('<img>');
 
-				
 				// Renders only the image result with fixed-height
 				// gifImage.attr('src', results[k].images.fixed_height_still.url);
 
-				// HOW TO GET BOTH SOURCES FOR IMAGES?????????  ~FIXED!! YAAAY!
+				// HOW TO GET BOTH SOURCES FOR IMAGES?  ~FIXED!! YAAAY!
 				// gifImage.attr('data-animate', results[k].images.fixed_height.url);
-
 				// gifImage.attr('data-still', results[k].images.fixed_height_still.url);
 
-				// Does this go here or in the image on-click????
 				// gifImage.attr('data-state', 'still');
 				
-
-				// Attempting to set multiple attributes at once........
+				// Attempting to set multiple attributes at once....  ~DONE!!
 				gifImage.attr({
 					'src': results[k].images.fixed_height_still.url,
 					'data-animate': results[k].images.fixed_height.url,
@@ -158,14 +149,11 @@ $(document).ready(function() {
 				
 				// Renders each new image & rating to the empty div in the HTML
 				// $('#gifs').prepend(gifDiv);
-				$('#gifs').append(gifDiv);
-				
-		}
-		// ^^Closes for loop for rendering gifs
-
+				$('#gifs').append(gifDiv);				
+			}
+			// ^^Closes for loop for rendering gifs
 		});
 		// ^^Closes ajax call
-
 	});
 	// ^^Closes on-click for button function
 
@@ -197,7 +185,7 @@ $(document).ready(function() {
 
 
 	// This function handles events where add cartoon button is pressed
-      $('#add-cartoon').on('click', function(event) {
+    $('#add-cartoon').on('click', function(event) {
         
         event.preventDefault();
 
@@ -207,20 +195,18 @@ $(document).ready(function() {
         		alert('Whoops! Please enter a title.');
         	} else {
 
-        // This line grabs the input from the textbox
+        // Grabs the input from the textbox
         var newCartoon = $('#gif-input').val().trim();
 
-        	// Adding input from the textbox to our array
+        	// Add input from the textbox to my array
         	topics.push(newCartoon);
 
-        	// Calling renderButtons which handles the processing of our movie array
+        	// Call renderButtons which handles the processing of topics/titles array
         	renderButtons();
 
         	// Empty add button input
 			// $('#gif-input').val().empty();
 			$('#gif-input').val('');
         };
-
-      });
-
+    });
 });
