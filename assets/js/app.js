@@ -149,7 +149,7 @@ $(document).ready(function() {
 				
 				// Renders each new image & rating to the empty div in the HTML
 				// $('#gifs').prepend(gifDiv);
-				$('#gifs').append(gifDiv);				
+				$('#gifs').append(gifDiv); 
 			}
 			// ^^Closes for loop for rendering gifs
 		});
