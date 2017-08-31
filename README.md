@@ -15,12 +15,4 @@ A fun app for grabbing animated gifs using the Giphy API
 
 * An input is provided to the user to add their own titled button
 
-* When the new button is added, it too can be clicked on and populate 10 gifs based on the input
-
-
-
-
-<!-- Delete these terminal commands for final -->
-<!-- git add assets/css/zazz.css
-git add assets/js/scratch.js
-git add assets/js/app.js -->
+* When the new button is added, it too can be clicked on and will populate 10 gifs based on the input
