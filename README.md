@@ -18,7 +18,7 @@
 
 ## Concept
 
-As a die-hard fan of animation, I've selected some of my favorite show titles to display a selection of gifs, using the Giphy API
+Being a HUGE fan of animation, I've selected some of my favorite shows titles to theme the choices of gifs "grabbed" from the Giphy API
 
 ## Technologies Used
 
@@ -49,3 +49,5 @@ Ajax, jQuery, JavaScript, Giphy API, Materialize framework, CSS, & HTML
 ###### Use form to generate new button
 
 ![Process 2](./screenshots/giphy2.gif)
+
+*Enjoy!*
